@@ -50,14 +50,6 @@
 			<finalName>socialmack</finalName>
 			<!--Estava no arquivo-->
 		<plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
-                </configuration>
-            </plugin>
             <!-- The maven app assembler plugin will generate a script that sets up the classpath and runs your project -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
