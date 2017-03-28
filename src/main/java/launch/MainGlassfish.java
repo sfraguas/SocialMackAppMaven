@@ -1,3 +1,5 @@
+package launch;
+
 import java.io.File;
 import java.net.URI;
 import java.util.regex.Matcher;
@@ -15,8 +17,11 @@ import org.glassfish.embeddable.archive.ScatteredArchive;
 
 public class MainGlassfish{
 
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) {
+		try {
 		String webappDirLocation = "src/main/webapp/";
+
+        System.out.println("-------Comecando ");
 
 		// The port that we should run on can be set into an environment
 		// variable
@@ -39,6 +44,9 @@ public class MainGlassfish{
 		GlassFish glassfish = GlassFishRuntime.bootstrap()
 				.newGlassFish(gfProps);
 		glassfish.start();
+
+        System.out.println("-------Comecando Glassfish ");
+
 		
 	    CommandRunner runner = glassfish.getCommandRunner();
 	    
@@ -86,7 +94,10 @@ public class MainGlassfish{
 		archive.addClassPath(new File("target", "classes"));
 
 		deployer.deploy(archive.toURI());
-
+		} catch(Exception e) {
+			e.printStackTrace();
+			
+		}
 	}
 
 }
