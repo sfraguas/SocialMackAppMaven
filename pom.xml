@@ -68,11 +68,11 @@
                     <generateRepository>false</generateRepository>
                     <programs>
                         <program>
-                            <mainClass>MainGlassfish</mainClass>
+                            <mainClass>launch.MainGlassfish</mainClass>
                             <name>webapp</name>
                         </program>
                         <program>
-                            <mainClass>Main</mainClass>
+                            <mainClass>launch.Main</mainClass>
                             <name>dbTest</name>
                         </program>
                     </programs>
