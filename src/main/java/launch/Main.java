@@ -34,8 +34,7 @@ public class Main {
         resources.addPreResources(new DirResourceSet(resources, "/WEB-INF/classes",
                 additionWebInfClasses.getAbsolutePath(), "/"));
         ctx.setResources(resources);
-
-        System.out.println("-- Chegou aqui!! --")
+        
         tomcat.start();
         tomcat.getServer().await();
     }
