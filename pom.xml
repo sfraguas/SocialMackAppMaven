@@ -7,45 +7,41 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>socialmack Maven Webapp</name>
 	<url>http://maven.apache.org</url>
-	<dependencies>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>jstl</artifactId>
-			<version>1.2</version>
-		</dependency>
-		<!--Estava no arquivo-->
-		<dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-web-api</artifactId>
-            <scope>provided</scope>
-            <version>6.0</version>
-        </dependency>
-        <!-- Glassfish -->
-        <dependency>
-            <groupId>org.glassfish.extras</groupId>
-            <artifactId>glassfish-embedded-web</artifactId>
-            <version>3.1.1</version>
-    	</dependency>	
-        
-		<!-- JDBC Driver -->
-		<dependency>
-    		<groupId>postgresql</groupId>
-    		<artifactId>postgresql</artifactId>
-    		<version>9.0-801.jdbc4</version>
-		</dependency>
-		<!--Estava no arquivo-->
-    </dependencies>
+	<properties>
+    <tomcat.version>8.0.28</tomcat.version>
+  </properties>
+  <dependencies>
+    <dependency>
+        <groupId>org.apache.tomcat.embed</groupId>
+        <artifactId>tomcat-embed-core</artifactId>
+        <version>${tomcat.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.tomcat.embed</groupId>
+        <artifactId>tomcat-embed-logging-juli</artifactId>
+        <version>${tomcat.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.tomcat.embed</groupId>
+        <artifactId>tomcat-embed-jasper</artifactId>
+        <version>${tomcat.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.tomcat</groupId>
+        <artifactId>tomcat-jasper</artifactId>
+        <version>${tomcat.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.tomcat</groupId>
+        <artifactId>tomcat-jasper-el</artifactId>
+        <version>${tomcat.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.tomcat</groupId>
+        <artifactId>tomcat-jsp-api</artifactId>
+        <version>${tomcat.version}</version>
+    </dependency>
+  </dependencies>
 		<build>
 			<finalName>socialmack</finalName>
 			<!--Estava no arquivo-->
@@ -59,12 +55,8 @@
                     <assembleDirectory>target</assembleDirectory> 
                     <programs>
                         <program>
-                            <mainClass>launch.MainGlassfish</mainClass>
-                            <name>webapp</name>
-                        </program>
-                        <program>
                             <mainClass>launch.Main</mainClass>
-                            <name>dbTest</name>
+                            <name>webapp</name>
                         </program>
                     </programs>
                 </configuration>
@@ -79,16 +71,4 @@
             </plugin>			
         </plugins>
         </build>
-        <repositories>
-        <repository>
-            <id>java.net</id>
-            <url>http://download.java.net/maven/glassfish</url>
-        </repository>
-    </repositories>
-    <pluginRepositories>
-        <pluginRepository>
-            <id>maven2.java.net</id>
-            <url>http://download.java.net/maven/glassfish</url>
-        </pluginRepository>
-    </pluginRepositories>
 </project>

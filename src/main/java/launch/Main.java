@@ -1,79 +1,42 @@
 package launch;
 
-import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.io.File;
 
+import org.apache.catalina.WebResourceRoot;
+import org.apache.catalina.core.StandardContext;
+import org.apache.catalina.startup.Tomcat;
+import org.apache.catalina.webresources.DirResourceSet;
+import org.apache.catalina.webresources.StandardRoot;
 
 public class Main {
 
-	
-    private static String dbUrl;
+    public static void main(String[] args) throws Exception {
 
-    static {
-        dbUrl = System.getenv("DATABASE_URL");
-        dbUrl = dbUrl.replaceAll("postgres://(.*):(.*)@(.*)", "jdbc:postgresql://$3?user=$1&password=$2&ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory");
-    }
+        String webappDirLocation = "src/main/webapp/";
+        Tomcat tomcat = new Tomcat();
 
-    private static void dbUpdate(String sql) throws SQLException {
-        Connection dbConn = null;
-        try {
-        	DriverManager.setLogWriter(new PrintWriter(System.out));
-            dbConn = DriverManager.getConnection(dbUrl);
-            Statement stmt = dbConn.createStatement();
-            stmt.executeUpdate(sql);
-        } finally {
-            if (dbConn != null) dbConn.close();
+        //The port that we should run on can be set into an environment variable
+        //Look for that variable and default to 8080 if it isn't there.
+        String webPort = System.getenv("PORT");
+        if(webPort == null || webPort.isEmpty()) {
+            webPort = "4242";
         }
-    }
 
-    public static void createTable() throws SQLException {
-        System.out.println("Creating ticks table.");
-        dbUpdate("DROP TABLE IF EXISTS ticks");
-        dbUpdate("CREATE TABLE ticks (tick timestamp)");
-    }
-    
-    
-    
-    public int getTickCount() throws SQLException {
-        return getTickcountFromDb();
-    }
+        tomcat.setPort(Integer.valueOf(webPort));
 
-    public static int getScalarValue(String sql) throws SQLException {
-        Connection dbConn = null;
-        try {
-        	DriverManager.setLogWriter(new PrintWriter(System.out));
-            dbConn = DriverManager.getConnection(dbUrl);
-            Statement stmt = dbConn.createStatement();
-            ResultSet rs = stmt.executeQuery(sql);
-            rs.next();
-            System.out.println("read from database");
-            return rs.getInt(1);
-        } finally {
-            if (dbConn != null) dbConn.close();
-        }
+        StandardContext ctx = (StandardContext) tomcat.addWebapp("/", new File(webappDirLocation).getAbsolutePath());
+        System.out.println("configuring app with basedir: " + new File("./" + webappDirLocation).getAbsolutePath());
+
+        // Declare an alternative location for your "WEB-INF/classes" dir
+        // Servlet 3.0 annotation will work
+        File additionWebInfClasses = new File("target/classes");
+        WebResourceRoot resources = new StandardRoot(ctx);
+        resources.addPreResources(new DirResourceSet(resources, "/WEB-INF/classes",
+                additionWebInfClasses.getAbsolutePath(), "/"));
+        ctx.setResources(resources);
+
+        System.out.println("-- Chegou aqui!! --")
+        tomcat.start();
+        tomcat.getServer().await();
     }
-
-    private int getTickcountFromDb() throws SQLException {
-        return getScalarValue("SELECT count(*) FROM ticks");
-    }
-
-    
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) throws SQLException{
-		System.out.println(dbUrl);
-		
-		createTable();
-		
-		Main main = new Main();
-		int i = main.getTickCount();
-		
-		System.out.println("tick count: " + i);
-	}
-
 }
