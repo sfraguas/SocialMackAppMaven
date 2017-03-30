@@ -15,7 +15,7 @@ public class FrontController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
                 
-        PrintWriter out = response.getWriter(  ); 
+        PrintWriter out = response.getWriter(); 
         response.setContentType("text/html"); 
         out.println("<H1>Hello from a Servlet</h2>"); 
         out.println("<P>Courtesy of FrontController ");
