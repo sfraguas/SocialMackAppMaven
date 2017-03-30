@@ -14,6 +14,7 @@ public class ControllerFactory {
         String className = "br.com.mack.controller.impl." + name + "Controller";
         try {
             instance = (Controller)Class.forName(className).newInstance();
+            System.out.println("Instancia da classe criada");
         } catch (Exception ex) {
             Logger.getLogger(ControllerFactory.class.getName()).log(Level.SEVERE, null, ex);
         }
