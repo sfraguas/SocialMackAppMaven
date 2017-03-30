@@ -1,4 +1,4 @@
-package servlet;
+package br.com.mack.web;
 
 import java.io.IOException;
 
