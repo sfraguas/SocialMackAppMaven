@@ -27,8 +27,10 @@ public class ParticipanteDAO implements GenericDAO<Participante> {
     private EntityTransaction et;
     
     public ParticipanteDAO(){
+        System.out.print("Antes");
         this.em = Persistence.createEntityManagerFactory("SocialMackAppPU").createEntityManager();
         this.et = em.getTransaction();
+        System.out.print("Depois");
     }
 
      @Override
