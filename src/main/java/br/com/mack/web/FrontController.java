@@ -8,6 +8,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import br.com.mack.controller.Controller;
+import br.com.mack.controller.ControllerFactory;
 
 @WebServlet(name = "FrontController", urlPatterns = {"/FrontController"})
 public class FrontController extends HttpServlet {
@@ -15,23 +17,23 @@ public class FrontController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
                 
-        PrintWriter out = response.getWriter(); 
+        /*PrintWriter out = response.getWriter(); 
         response.setContentType("text/html"); 
         out.println("<H1>Hello from a Servlet</h2>"); 
-        out.println("<P>Courtesy of FrontController ");
+        out.println("<P>Courtesy of FrontController ");*/
         
-        //String ctrl = request.getParameter("ctrl");
+        String ctrl = request.getParameter("ctrl");
         
-        //Controller controller = ControllerFactory.getInstanceByName(ctrl);
+        Controller controller = ControllerFactory.getInstanceByName(ctrl);
         
-        //String page = "erro.jsp";
-        //if(controller!=null){
-        //    controller.init(request, response);
-            //controller.execute();
-          //  page = controller.getReturnPage();
-        //}
+        String page = "erro.jsp";
+        if(controller!=null){
+            controller.init(request, response);
+            controller.execute();
+            page = controller.getReturnPage();
+        }
         
-        //response.sendRedirect(page);
+        response.sendRedirect(page);
         
     }
 
