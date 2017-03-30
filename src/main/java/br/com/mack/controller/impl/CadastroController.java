@@ -11,7 +11,7 @@ import javax.naming.NamingException;
 
 public class CadastroController extends AbstractController {
 
-    ParticipanteDAO participanteDAO = new ParticipanteDAO();
+    //ParticipanteDAO participanteDAO = new ParticipanteDAO();
 
     @Override
     public void execute() {
@@ -23,11 +23,11 @@ public class CadastroController extends AbstractController {
         participante.setEmail(email);
 
         getRequest().getSession().setAttribute("participante", participante);
-        try {
-            participanteDAO.create(participante);
+        /*try {
+            //participanteDAO.create(participante);
         } catch (Exception ex) {
             Logger.getLogger(CadastroController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
 
 
         this.setReturnPage("user_area/lista_palestras.jsp");
