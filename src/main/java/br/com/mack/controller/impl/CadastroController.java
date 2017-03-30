@@ -11,7 +11,7 @@ import javax.naming.NamingException;
 
 public class CadastroController extends AbstractController {
 
-    //ParticipanteDAO participanteDAO = new ParticipanteDAO();
+    ParticipanteDAO participanteDAO = new ParticipanteDAO();
 
     @Override
     public void execute() {
