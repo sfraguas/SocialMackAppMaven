@@ -5,7 +5,7 @@
  */
 package br.com.mack.persistence;
 
-import br.com.mack.persistence.entities.Palestra;
+import br.com.mack.persistence.entities.Participante;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -20,53 +20,48 @@ import javax.persistence.Query;
  */
 //@LocalBean
 //@Stateful
-public class PalestraDAO implements GenericDAO<Palestra> {
+public class ParticipanteDAO implements GenericDAO<Participante> {
 
     //@PersistenceContext(unitName = "SocialMackAppPU", type = PersistenceContextType.EXTENDED)
     private EntityManager em ;
-    private EntityTransaction = et;
+    private EntityTransaction et;
     
-    public PalestraDAO(){
-        this.em = Persistence.createEntidyManagerFactory("SocialMackAppPU").createEntidyManager();
-        this.et = entityManager.getTransaction();
+    public ParticipanteDAO(){
+        this.em = Persistence.createEntityManagerFactory("SocialMackAppPU").createEntityManager();
+        this.et = em.getTransaction();
     }
 
-    @Override
-    public void create(Palestra participante) throws Exception {
-        et.begin();
+     @Override
+    public void create(Participante participante) throws Exception {
         em.persist(participante);
-        et.commit();
     }
-
+    
     @Override
-    public List<Palestra> readAll() throws Exception {
-        et.begin();
-        Query q = em.createQuery("SELECT p FROM Palestra p");
-        List<Palestra> lista = q.getResultList();
+    public List<Participante> readAll() throws Exception {
+        Query q = em.createQuery("SELECT p FROM Participante p");
+        List<Participante> lista = q.getResultList();
         return lista;
-        et.commit();
     }
-
+    
     @Override
-    public Palestra readById(long id) throws Exception {
-        et.begin();
-        Palestra palestra = (Palestra) em.find(Palestra.class, id);
-        return palestra;
-        et.commit();
+    public Participante readById(long id) throws Exception {
+        
+        return em.find(Participante.class, id); //EAGER
+//        return em.getReference(Participante.class, id) //LAZY
     }
-
+    
     @Override
-    public void update(Palestra e) throws Exception {
-        et.begin();
-        em.persist(em.merge(e));
-        et.commit();
+    public void update(Participante participante) throws Exception {
+        em.persist(em.merge(participante));
     }
-
+    
     @Override
-    public void delete(Palestra e) throws Exception {
-        et.begin();
-        em.remove(em.merge(e));
-        et.commit();
+    public void delete(Participante participante) throws Exception {
+        em.remove(em.merge(participante));
     }
 
+    public List<Participante> readById() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
 }

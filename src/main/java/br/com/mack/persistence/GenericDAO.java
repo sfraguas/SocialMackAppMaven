@@ -2,10 +2,6 @@ package br.com.mack.persistence;
 
 import java.util.List;
 
-/**
- *
- * @author 41583469
- */
 public interface GenericDAO<E> {
     public void create(E e)throws Exception;
     
