@@ -18,8 +18,6 @@ public class FrontController extends HttpServlet {
         PrintWriter out = response.getWriter(  ); 
         response.setContentType("text/html"); 
         out.println("<H1>Hello from a Servlet</h2>"); 
-        out.println("<P>This servlet ran at "); 
-        out.println(new Date().toString(  )); 
         out.println("<P>Courtesy of FrontController ");
         
         //String ctrl = request.getParameter("ctrl");
