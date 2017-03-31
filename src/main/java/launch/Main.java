@@ -1,7 +1,5 @@
 package launch;
 
-import br.com.mack.persistence.TesteConnection;
-
 import java.io.File;
 
 import org.apache.catalina.WebResourceRoot;
@@ -42,6 +40,6 @@ public class Main {
         tomcat.start();
         tomcat.getServer().await();
         
-        TesteConnection connection = new TesteConnection();
+        
     }
 }

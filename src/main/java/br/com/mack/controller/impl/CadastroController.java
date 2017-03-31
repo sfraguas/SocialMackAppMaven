@@ -1,5 +1,7 @@
 package br.com.mack.controller.impl;
 
+import br.com.mack.persistence.TesteConnection;
+
 import br.com.mack.controller.AbstractController;
 import br.com.mack.persistence.ParticipanteDAO;
 import br.com.mack.persistence.entities.Participante;
@@ -11,18 +13,21 @@ import javax.naming.NamingException;
 
 public class CadastroController extends AbstractController {
 
-    ParticipanteDAO participanteDAO = new ParticipanteDAO();
+    //ParticipanteDAO participanteDAO = new ParticipanteDAO();
+    
 
     @Override
     public void execute() {
         System.out.println("FUNCIONOU");
-        String name = this.getRequest().getParameter("name");
-        String email = this.getRequest().getParameter("email");
-        Participante participante = new Participante();
-        participante.setNome(name);
-        participante.setEmail(email);
+        
+        TesteConnection connection = new TesteConnection();
+        //String name = this.getRequest().getParameter("name");
+        //String email = this.getRequest().getParameter("email");
+        //Participante participante = new Participante();
+        //participante.setNome(name);
+        //participante.setEmail(email);
 
-        getRequest().getSession().setAttribute("participante", participante);
+        //getRequest().getSession().setAttribute("participante", participante);
         /*try {
             //participanteDAO.create(participante);
         } catch (Exception ex) {
