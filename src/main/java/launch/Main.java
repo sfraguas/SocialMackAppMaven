@@ -33,6 +33,8 @@ public class Main {
         WebResourceRoot resources = new StandardRoot(ctx);
         resources.addPreResources(new DirResourceSet(resources, "/WEB-INF/classes",
                 additionWebInfClasses.getAbsolutePath(), "/"));
+        resources.addPreResources(new DirResourceSet(resources, "/META-INF",
+                additionWebInfClasses.getAbsolutePath(), "/"));
         ctx.setResources(resources);
         
         tomcat.start();

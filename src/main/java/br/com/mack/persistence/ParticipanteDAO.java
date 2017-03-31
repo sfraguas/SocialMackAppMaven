@@ -14,10 +14,6 @@ import javax.persistence.PersistenceContextType;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-/**
- *
- * @author 41583469
- */
 //@LocalBean
 //@Stateful
 public class ParticipanteDAO implements GenericDAO<Participante> {
