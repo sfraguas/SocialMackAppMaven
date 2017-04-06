@@ -34,7 +34,7 @@ public class CadastroController extends AbstractController {
             Logger.getLogger(CadastroController.class.getName()).log(Level.SEVERE, null, ex);
         }*/
     
-        String dbUrl = System.getenv("JDBC_DATABASE_URL");
+        String dbUrl = System.getenv("DATABASE_URL");
         if(dbUrl != null){
             System.out.println(dbUrl);
             getRequest().getSession().setAttribute("user",dbUrl);
