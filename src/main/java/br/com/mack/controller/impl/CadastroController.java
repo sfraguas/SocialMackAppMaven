@@ -37,7 +37,7 @@ public class CadastroController extends AbstractController {
         String dbUrl = System.getenv("JDBC_DATABASE_URL");
         if(dbUrl != null){
             System.out.println(dbUrl);
-            request.getSession().setAttribute("user",dbUrl)
+            request.getSession().setAttribute("user",dbUrl);
         }
 
         this.setReturnPage("user_area/lista_palestras.jsp");
