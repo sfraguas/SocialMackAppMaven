@@ -20,7 +20,7 @@ public class CadastroController extends AbstractController {
     public void execute() {
         System.out.println("FUNCIONOU");
         
-        TesteConnection connection = new TesteConnection();
+        //TesteConnection connection = new TesteConnection();
         //String name = this.getRequest().getParameter("name");
         //String email = this.getRequest().getParameter("email");
         //Participante participante = new Participante();
@@ -33,7 +33,12 @@ public class CadastroController extends AbstractController {
         } catch (Exception ex) {
             Logger.getLogger(CadastroController.class.getName()).log(Level.SEVERE, null, ex);
         }*/
-
+    
+        String dbUrl = System.getenv("JDBC_DATABASE_URL");
+        if(dbUrl != null){
+            System.out.println(dbUrl);
+            request.getSession().setAttribute("user",dbUrl)
+        }
 
         this.setReturnPage("user_area/lista_palestras.jsp");
     }
