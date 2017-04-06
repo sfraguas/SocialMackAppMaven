@@ -40,9 +40,9 @@ public class CadastroController extends AbstractController {
     
         String dbUrl = System.getenv("DATABASE_URL");
         if(dbUrl != null){
-            Class.forName("org.postgresql.Driver");
             Connection c = null;
             try{
+                Class.forName("org.postgresql.Driver");
                c = DriverManager.getConnection(dbUrl);
             }catch(Exception e){
                 System.out.println(e.getMessage());
