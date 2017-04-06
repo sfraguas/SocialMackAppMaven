@@ -25,7 +25,7 @@ public class CadastroController extends AbstractController {
         System.out.println("FUNCIONOU");
         //TesteConnection connection = new TesteConnection();
         
-        String name = this.getRequest().getParameter("name");
+        /*String name = this.getRequest().getParameter("name");
         String email = this.getRequest().getParameter("email");
         Participante participante = new Participante();
         participante.setNome(name);
@@ -37,9 +37,9 @@ public class CadastroController extends AbstractController {
             this.setReturnPage("sucesso.jsp");
         } catch (Exception ex) {
             Logger.getLogger(CadastroController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
     
-        /*String dbUrl = System.getenv("JDBC_DATABASE_URL");
+        String dbUrl = System.getenv("JDBC_DATABASE_URL");
         if(dbUrl != null){
             Connection c = null;
             try{
@@ -52,6 +52,6 @@ public class CadastroController extends AbstractController {
                 getRequest().getSession().setAttribute("user",dbUrl+" \n Conectado com sucesso");
                 this.setReturnPage("user_area/lista_palestras.jsp");
             }
-        }*/
+        }
     }
 }
