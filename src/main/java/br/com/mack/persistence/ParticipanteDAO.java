@@ -23,13 +23,14 @@ public class ParticipanteDAO implements GenericDAO<Participante> {
     private EntityTransaction et;
     
     public ParticipanteDAO(){
-        System.out.print("Antes");
-        this.em = Persistence.createEntityManagerFactory("SocialMackAppPU").createEntityManager();
-        //this.et = em.getTransaction();*/
+        /*System.out.print("Antes");
+        //this.et = em.getTransaction();
+        System.out.print("Depois");*/
         
-        //this.em = null;
-        this.et = null;
-        System.out.print("Depois");
+        String dbUrl = System.getenv("JDBC_DATABASE_URL");
+        this.em = Persistence.createEntityManagerFactory(dbUrl).createEntityManager();
+        this.et = this.em.getTransaction();
+        
     }
 
      @Override
