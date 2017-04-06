@@ -11,6 +11,10 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.lang.Exception;
+
 public class CadastroController extends AbstractController {
 
     //ParticipanteDAO participanteDAO = new ParticipanteDAO();
@@ -36,9 +40,16 @@ public class CadastroController extends AbstractController {
     
         String dbUrl = System.getenv("DATABASE_URL");
         if(dbUrl != null){
-            System.out.println(dbUrl);
-            getRequest().getSession().setAttribute("user",dbUrl);
-            this.setReturnPage("user_area/lista_palestras.jsp");
+            Connection c = null;
+            try{
+               c = DriverManager.getConnection(dbUrl);
+            }catch(Exception e){
+                System.out.println(e.getMessage());
+            }
+            if(c != null){
+                getRequest().getSession().setAttribute("user",dbUrl+" \n Conectado com sucesso");
+                this.setReturnPage("user_area/lista_palestras.jsp");
+            }
         }
     }
 }
