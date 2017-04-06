@@ -4,10 +4,15 @@
   <persistence-unit name="SocialMackAppPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
       <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:postgres://cfgphhhbwhsafx:9b4574eee1dffbfb2a7c6b9c4f0e400a9efff7af7ba87fd9dc75575b6e4d8517@ec2-54-235-84-244.compute-1.amazonaws.com:5432/d4nhs86sibbeej" />
+        
+        <bean class="java.net.URI" id="dbUrl">
+            <constructor-arg value="#{systemEnvironment['DATABASE_URL']}"/>
+        </bean>
+        
+      <property name="javax.persistence.jdbc.url" value="#{ 'jdbc:postgresql://' + @dbUrl.getHost() + ':' + @dbUrl.getPort() + @dbUrl.getPath() }" />
       <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
-      <property name="javax.persistence.jdbc.user" value="ginxtzsopxahuj" />
-      <property name="javax.persistence.jdbc.password" value="563ad77ac07f4ed14daa35d8fb7ff1d6d74de46d40bd8f96a03f6b0010778280" />
+      <property name="javax.persistence.jdbc.user" value="#{ @dbUrl.getUserInfo().split(':')[0] }" />
+      <property name="javax.persistence.jdbc.password" value="#{ @dbUrl.getUserInfo().split(':')[1] }" />
       <property name="eclipselink.logging.level" value="ALL" />
        </properties>
      </persistence-unit>
