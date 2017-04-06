@@ -17,7 +17,7 @@ import java.lang.Exception;
 
 public class CadastroController extends AbstractController {
 
-    //ParticipanteDAO participanteDAO = new ParticipanteDAO();
+    ParticipanteDAO participanteDAO = new ParticipanteDAO();
     
 
     @Override
