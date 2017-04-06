@@ -40,6 +40,11 @@ public class Main {
         tomcat.start();
         tomcat.getServer().await();
         
+        String dbUrl = System.getenv("JDBC_DATABASE_URL");
+        if(dbUrl != null){
+            System.out.println(dbUrl);
+        }
+        
         
     }
 }
