@@ -38,8 +38,7 @@ public class CadastroController extends AbstractController {
         if(dbUrl != null){
             System.out.println(dbUrl);
             getRequest().getSession().setAttribute("user",dbUrl);
+            this.setReturnPage("user_area/lista_palestras.jsp");
         }
-
-        this.setReturnPage("user_area/lista_palestras.jsp");
     }
 }
