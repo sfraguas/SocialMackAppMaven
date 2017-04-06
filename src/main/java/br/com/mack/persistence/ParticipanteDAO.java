@@ -18,18 +18,14 @@ import javax.persistence.Query;
 //@Stateful
 public class ParticipanteDAO implements GenericDAO<Participante> {
 
-    //@PersistenceContext(unitName = "SocialMackAppPU", type = PersistenceContextType.EXTENDED)
+    @PersistenceContext(unitName = "SocialMackAppPU", type = PersistenceContextType.EXTENDED)
     private EntityManager em ;
     private EntityTransaction et;
     
     public ParticipanteDAO(){
-        /*System.out.print("Antes");
-        //this.et = em.getTransaction();
-        System.out.print("Depois");*/
-        
-        String dbUrl = System.getenv("JDBC_DATABASE_URL");
-        this.em = Persistence.createEntityManagerFactory(dbUrl).createEntityManager();
-        this.et = this.em.getTransaction();
+        System.out.print("Antes");
+        this.et = em.getTransaction();
+        System.out.print("Depois");
         
     }
 
