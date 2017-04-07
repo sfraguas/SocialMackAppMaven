@@ -11,12 +11,15 @@
         
         <!--<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">-->
         
-            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://ec2-54-235-84-244.compute-1.amazonaws.com:5432/d4nhs86sibbeej" />
+            <!--<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://ec2-54-235-84-244.compute-1.amazonaws.com:5432/d4nhs86sibbeej" />
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
             <property name="javax.persistence.jdbc.user" value="cfgphhhbwhsafx" />
             <property name="javax.persistence.jdbc.password" value="9b4574eee1dffbfb2a7c6b9c4f0e400a9efff7af7ba87fd9dc75575b6e4d8517" />
             <property name="eclipselink.logging.level" value="ALL" />
-            <property name="javax.persistence.jdbc.requiressl">true</property>
+            <property name="sslmo">true</property>-->
+            
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://ec2-54-235-84-244.compute-1.amazonaws.com:5432/d4nhs86sibbeej?user=cfgphhhbwhsafx&password=9b4574eee1dffbfb2a7c6b9c4f0e400a9efff7af7ba87fd9dc75575b6e4d8517&sslmode=require" ></property>
+
             
         <!--</bean>-->  
       
