@@ -31,9 +31,9 @@ public class ParticipanteDAO implements GenericDAO<Participante> {
 
      @Override
     public void create(Participante participante) throws Exception {
-        et.begin();
+        
         em.persist(participante);
-        et.commit();
+        
     }
     
     @Override
