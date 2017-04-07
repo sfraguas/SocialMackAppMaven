@@ -24,7 +24,7 @@ public class ParticipanteDAO implements GenericDAO<Participante> {
     
     public ParticipanteDAO(){
         System.out.print("Antes");
-        this.et = em.getTransaction();
+        //this.et = em.getTransaction();
         System.out.print("Depois");
         
     }
