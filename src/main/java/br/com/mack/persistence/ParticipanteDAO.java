@@ -6,6 +6,7 @@
 package br.com.mack.persistence;
 
 import br.com.mack.persistence.entities.Participante;
+import br.com.mack.singletonconnection.SingletonConnection;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -14,53 +15,53 @@ import javax.persistence.PersistenceContextType;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-//@LocalBean
-//@Stateful
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import java.lang.ClassNotFoundException;
+
 public class ParticipanteDAO implements GenericDAO<Participante> {
 
-    @PersistenceContext(unitName = "SocialMackAppPU", type = PersistenceContextType.EXTENDED)
-    private EntityManager em ;
-    private EntityTransaction et;
-    
-    public ParticipanteDAO(){
-        System.out.print("Antes");
-        //this.et = em.getTransaction();
-        System.out.print("Depois");
-        
-    }
+    private static Connection connection = SingletonConnection.getInstance().getConnection();
 
      @Override
-    public void create(Participante participante) throws Exception {
+    public void create(Participante part){
         
-        em.persist(participante);
+        try {
+            String sql = "INSERT INTO participante(nome,email)VALUES(?,?)";
         
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1,part.getNome());
+            ps.setString(2,part.getEmail());
+            ps.execute();
+            ps.close();
+        } catch(Exception ex) {
+            Logger.getLogger(ParticipanteDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     @Override
-    public List<Participante> readAll() throws Exception {
-    
-        Query q = em.createQuery("SELECT p FROM Participante p");
-        List<Participante> lista = q.getResultList();
-        return lista;
+    public List<Participante> readAll() {
+        return null;
     }
     
     @Override
-    public Participante readById(long id) throws Exception {
-        return em.find(Participante.class, id); //EAGER
-//        return em.getReference(Participante.class, id) //LAZY
+    public Participante readById(long id) {
+        return null;
     }
     
     @Override
-    public void update(Participante participante) throws Exception {
-        et.begin();
-        em.persist(em.merge(participante));
-        et.begin();
+    public void update(Participante participante) {
+       
     }
     
     @Override
-    public void delete(Participante participante) throws Exception {
-        et.begin();
-        em.remove(em.merge(participante));
-        et.begin();
+    public void delete(Participante participante) {
+        
     }
 }

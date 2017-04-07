@@ -38,20 +38,5 @@ public class CadastroController extends AbstractController {
         } catch (Exception ex) {
             Logger.getLogger(CadastroController.class.getName()).log(Level.SEVERE, null, ex);
         }
-    
-        String dbUrl = System.getenv("JDBC_DATABASE_URL");
-        if(dbUrl != null){
-            Connection c = null;
-            try{
-                Class.forName("org.postgresql.Driver");
-               c = DriverManager.getConnection(dbUrl);
-            }catch(Exception e){
-                System.out.println(e.getMessage());
-            }
-            if(c != null){
-                getRequest().getSession().setAttribute("user",dbUrl+" \n Conectado com sucesso");
-                this.setReturnPage("user_area/lista_palestras.jsp");
-            }
-        }
     }
 }
