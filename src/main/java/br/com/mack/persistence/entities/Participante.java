@@ -1,33 +1,13 @@
 package br.com.mack.persistence.entities;
 
 import java.io.Serializable;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 
-@Entity
-//@Table(name = "lp3_userlp3")
 public class Participante implements Serializable{
   
-    
-    private String nome,email;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    Renomear a coluna
-//    @Column(name = "chavinha")
     private long id_participante;
+    private String nome,email;
     
-//    Precisa para data
-//    @Temporal(TemporalType.DATE)
-//    private Date birthday;
-    
-    
-//    Não persistente
-//    @Transient
-//    private int age;
-
     public Participante() {
     }
 

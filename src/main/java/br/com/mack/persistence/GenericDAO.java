@@ -6,6 +6,7 @@ public interface GenericDAO<E> {
     public void create(E e);
     
     public List<E> readAll(); 
+    
     public E readById(long id); 
     
     public void update(E e);
