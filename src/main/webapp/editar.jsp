@@ -13,6 +13,11 @@
     </head>
     <body>
         <form action="FrontController" method="POST">
+        
+            <p>
+                <label for="id">id:</label><br>
+                <input type="text" id="name" name="name" value="${participante.id_participante}" readonly/>
+            </p>
             <p>
                 <label for="name">Nome:</label><br>
                 <input type="text" id="name" name="name" value="${participante.nome}"/>
