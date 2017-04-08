@@ -15,7 +15,7 @@
     </head>
     <body>
         <c:forEach var="i" items="${palestras}">
-            <a href="FrontController?ctrl=RegistrarPalestra&idPalestra=${i.idPalestra}">
+            <a href="FrontController?ctrl=RegistrarPalestra&idPalestra=${i.id_palestra}">
                 <c:out value="${i}"></c:out>
             </a>
         </c:forEach>
