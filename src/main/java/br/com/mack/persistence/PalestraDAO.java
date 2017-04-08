@@ -6,6 +6,7 @@ import br.com.mack.persistence.GenericDAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -23,21 +24,21 @@ public class PalestraDAO implements GenericDAO<Palestra>{
     }
     
     @Override
-    public void List<Palestra> readAll(){
-        List<Palestra> palestras = new ArrayList<>();
+    public List<Palestra> readAll(){
+        List<Palestra> palestras = new ArrayList<Palestra>();
          
         //Declarar String de busca
         String sql = "SELECT * FROM palestra";
         
         try{
-            Statement ps = connection.createStatement();
+            PreparedStatement ps = connection.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
                 Palestra palestra = new Palestra();
                 palestra.setId_palestra(rs.getLong("id"));
                 palestra.setTema(rs.getString("tema"));
                 palestra.setCodigo(rs.getInt("codigo"));
-                palestras.add();
+                palestras.add(palestra);
             }
             ps.close();
             
@@ -49,7 +50,7 @@ public class PalestraDAO implements GenericDAO<Palestra>{
     }
     
     @Override
-    public Palestra readById(){
+    public Palestra readById(long id){
         return null;
     }
     

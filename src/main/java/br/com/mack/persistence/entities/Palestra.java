@@ -3,7 +3,7 @@ package br.com.mack.persistence.entities;
 import java.io.Serializable;
 
 
-public class Palestra implements Serializabe{
+public class Palestra implements Serializable{
     
     private long id_palestra;
     private String tema;
@@ -39,6 +39,6 @@ public class Palestra implements Serializabe{
     
     @Override
     public String toString(){
-        return "Palestra{" + "id_palestra=" + id_palestra + ", nome=" + nome + ", codigo=" + codigo + '}';
+        return "Palestra{" + "id_palestra=" + id_palestra + ", tema=" + tema + ", codigo=" + codigo + '}';
     }
 }
