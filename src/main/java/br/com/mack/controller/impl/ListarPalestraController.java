@@ -1,4 +1,4 @@
-package br.mack.lp3.controller.impl;
+package br.com.mack.controller.impl;
 
 import br.com.mack.controller.AbstractController;
 import br.com.mack.persistence.PalestraDAO;
