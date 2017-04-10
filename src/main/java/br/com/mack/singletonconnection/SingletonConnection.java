@@ -26,8 +26,7 @@ public class SingletonConnection{
         
         try{
             Class.forName("org.postgresql.Driver");
-            //dbUrl = System.getenv("JDBC_DATABASE_URL");
-            dbUrl = "postgres://eicemvsqtevdzf:fb16388f8f1b45b3764bf14bca02f06787f46f2e3ea05fe8b29fd63be8da6a47@ec2-23-21-220-48.compute-1.amazonaws.com:5432/d29ubrbji6ovbs";
+            dbUrl = System.getenv("JDBC_DATABASE_URL");
             connection = DriverManager.getConnection(dbUrl);
         } catch(Exception ex){
             Logger.getLogger(SingletonConnection.class.getName()).log(Level.SEVERE, null, ex);
