@@ -25,7 +25,7 @@ public class ListarPalestraController extends AbstractController {
 //            for(Palestra palestra:palestras){
 //                System.out.println(palestra);
 //            }
-            setReturnPage("palestras.jsp");
+            setReturnPage("user_area/lista_palestras.jsp");
         } catch (Exception ex) {
             Logger.getLogger(ListarPalestraController.class.getName()).log(Level.SEVERE, null, ex);
         }
