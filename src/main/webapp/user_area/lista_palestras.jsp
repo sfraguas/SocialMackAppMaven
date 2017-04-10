@@ -18,7 +18,7 @@ ${participante}
                     ${p}
                 </div>
                 <div class="panel-footer">
-                    <a href="<c:url value="/FrontController?ctrl=FrontController?ctrl=RegistrarPalestra&idPalestra=${p.id_palestra}"/>" class="btn btn-default btn-lg center-block">
+                    <a href="<c:url value="/FrontController?ctrl=RegistrarPalestra&idPalestra=${p.id_palestra}"/>" class="btn btn-default btn-lg center-block">
                         Inscrever-se
                     </a>
                 </div>
