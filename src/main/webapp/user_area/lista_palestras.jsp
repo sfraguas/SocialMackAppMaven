@@ -12,13 +12,13 @@ ${participante}
         <div class="col-sm-12 col-md-4 col-lg-3">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Palestra ${p.idPalestra}
+                    Palestra ${p.id_palestra}
                 </div>
                 <div class="panel-body">             
                     ${p}
                 </div>
                 <div class="panel-footer">
-                    <a href="<c:url value="/FrontController?ctrl=FrontController?ctrl=RegistrarPalestra&idPalestra=${i.id_palestra}"/>" class="btn btn-default btn-lg center-block">
+                    <a href="<c:url value="/FrontController?ctrl=FrontController?ctrl=RegistrarPalestra&idPalestra=${p.id_palestra}"/>" class="btn btn-default btn-lg center-block">
                         Inscrever-se
                     </a>
                 </div>
