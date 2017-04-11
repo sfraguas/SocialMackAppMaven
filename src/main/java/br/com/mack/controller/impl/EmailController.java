@@ -5,7 +5,6 @@ import br.com.mack.email.EmailDispatcher;
 
 public class EmailController extends AbstractController{
     
-    private EmailDispatcher emailDispatcher;
     
     @Override
     public void execute() {
