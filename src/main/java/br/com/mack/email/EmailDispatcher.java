@@ -23,7 +23,7 @@ import org.apache.commons.mail.SimpleEmail;
                 email.setSubject("Senha automatica");
                 email.setMsg("codigo que a gente vai gerar");
                 email.addTo(to);
-                //email.getMailSession().getProperties().put("mail.smtp.auth", "true");
+                email.getMailSession().getProperties().put("mail.smtp.auth", "true");
                 email.send();                
             } catch (EmailException e) {
                 e.printStackTrace();
