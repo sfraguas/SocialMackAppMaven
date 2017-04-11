@@ -5,12 +5,11 @@ import br.com.mack.email.EmailDispatcher;
 
 public class EmailController extends AbstractController{
     
-    private EmailDispatcher emailDispatcher;
     
     @Override
     public void execute() {
-        String to = getRequest().getParameter("email");
-        emailDispatcher.sendEmail(to);
+        String to = this.getRequest().getParameter("email");
+        EmailDispatcher.sendEmail(to);
     }
 
 }
