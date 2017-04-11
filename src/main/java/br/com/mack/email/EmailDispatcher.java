@@ -18,13 +18,13 @@ import org.apache.commons.mail.SimpleEmail;
                 email.setHostName("smtp.gmail.com");
                 email.setSmtpPort(465);
                 email.setAuthenticator(new DefaultAuthenticator(FROM_EMAIL, FROM_PASSWORD));
-                email.setSSLOnConnect(true);
+                //email.setSSLOnConnection(true);
                 email.setFrom(FROM_EMAIL);
                 email.setSubject("Senha automatica");
                 email.setMsg("codigo que a gente vai gerar");
                 email.addTo(to);
                 email.getMailSession().getProperties().put("mail.smtp.auth", "true");
-                email.send();
+                email.send();                
             } catch (EmailException e) {
                 e.printStackTrace();
             }
