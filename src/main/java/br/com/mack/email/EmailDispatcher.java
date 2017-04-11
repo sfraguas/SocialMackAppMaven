@@ -17,16 +17,23 @@ import org.apache.commons.mail.SimpleEmail;
                 email.setDebug(true);
                 email.setHostName("smtp.gmail.com");
                 email.setSmtpPort(465);
-                email.setAuthenticator(new DefaultAuthenticator(FROM_EMAIL, FROM_PASSWORD));
-                email.setSSLOnConnect(true);
-                email.setFrom(FROM_EMAIL);
-                email.setSubject("Senha automatica");
-                email.setMsg("codigo que a gente vai gerar");
-                email.addTo(to);
-                email.getMailSession().getProperties().put("mail.smtp.auth", "true");
+                email.addTo(to, "Yuri");
+                email.setFrom(FROM_EMAIL, "Renan");
+                email.setSubject("Geração de Senha");
+                email.setMsg("Senha para consumo externo");
+                email.setSSL(true);
+                email.setAuthentication(FROM_EMAIL, FROM_PASSWORD);
                 email.send();
+                //email.setAuthenticator(new DefaultAuthenticator(FROM_EMAIL, FROM_PASSWORD));
+                //email.setSSL(true);
+                //email.setFrom(FROM_EMAIL);
+                //email.setSubject("Senha automatica");
+               // email.setMsg("codigo que a gente vai gerar");
+                //email.addTo("iuri_novaes.2010@hotmail.com");
+                //email.getMailSession().getProperties().put("mail.smtp.auth", "true");
+                //email.send();
             } catch (EmailException e) {
-                e.printStackTrace();
-            }
+                    e.printStackTrace();
+                }   
         }
     }
