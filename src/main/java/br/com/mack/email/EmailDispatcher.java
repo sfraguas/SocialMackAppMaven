@@ -17,7 +17,7 @@ public class EmailDispatcher {
         
         try{
             request.method = Method.POST;
-            request.endpoint = "main/send";
+            request.endpoint = "mail/send";
             request.body = mail.build();
             Response response = sg.api(request);
             System.out.println(response.statusCode);
