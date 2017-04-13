@@ -18,11 +18,8 @@
                     <input type="hidden" value="Email" name="ctrl">
                     <input type="submit" value="email" class="btn btn-default btn-lg center-block">
                 </form>
-
                 <br/>
-
-                <a style="text-align: center;" href="cadastro.jsp" role="button"><h4>Cadastre-se</h4></a>
-
+                
             </div>
         </div>
     </div>

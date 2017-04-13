@@ -6,6 +6,7 @@ import java.io.IOException;
 public class EmailDispatcher {
         
     public static void sendEmail(String to) {
+        System.out.println("Arrived e-mail: " + to);
         Email from = new Email("brunoalbuquerquebrito@outlook.com");
     String subject = "Hello World from the SendGrid Java Library!";
     Email toMail = new Email(to);
