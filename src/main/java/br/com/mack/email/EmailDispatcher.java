@@ -9,7 +9,7 @@ import java.io.IOException;
         public static void sendEmail(String emailTo) {
             Email from = new Email("yuri.novaes.2013@gmail.com");
             
-            String subject = "Hello World from Mackenzie!";
+            String subject = "Hello World from Mackenzie Brazil!";
             Email email = new Email(emailTo);
             Content content = new Content("text/plain", "Mackenzie ensina");
             Mail mail = new Mail(from, subject, email, content);
