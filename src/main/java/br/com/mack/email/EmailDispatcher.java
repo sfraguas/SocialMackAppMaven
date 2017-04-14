@@ -6,12 +6,12 @@ import java.io.IOException;
     public class EmailDispatcher {
                 
 
-        public static void sendEmail(String to) {
+        public static void sendEmail(String emailTo) {
             Email from = new Email("yuri.novaes.2013@gmail.com");
             
-            String subject = "Hello World from the SendGrid Java Library!";
-            Email email = new Email(to);
-            Content content = new Content("text/plain", "Hello, Email!");
+            String subject = "Hello World from Mackenzie!";
+            Email email = new Email(emailTo);
+            Content content = new Content("text/plain", "Mackenzie ensina");
             Mail mail = new Mail(from, subject, email, content);
             
             SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
