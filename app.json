@@ -1,13 +1,15 @@
 {
   "name": "SocialMackAppMaven",
   "scripts": {
+    "postdeploy": "pg_dump $STAGING_DATABASE_URL | psql $DATABASE_URL && bundle exec rake db:migrate"
   },
   "env": {
   },
   "formation": {
   },
   "addons": [
-    "heroku-postgresql"
+    "heroku-postgresql",
+    "sendgrid"
   ],
   "buildpacks": [
     {
