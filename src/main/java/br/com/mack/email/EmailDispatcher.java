@@ -7,7 +7,7 @@ import java.io.IOException;
                 
 
         public static void sendEmail(String to) {
-            Email from = new Email("brunoalbuquerquebrito@outlook.com");
+            Email from = new Email("yuri.novaes.2013@gmail.com");
             
             String subject = "Hello World from the SendGrid Java Library!";
             Email toMail = new Email(to);
