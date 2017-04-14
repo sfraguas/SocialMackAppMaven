@@ -1,32 +1,31 @@
 package br.com.mack.email;
 
-
-import org.apache.commons.mail.DefaultAuthenticator;
-import org.apache.commons.mail.EmailException;
-import org.apache.commons.mail.SimpleEmail;
-
+import com.sendgrid.*;
+import java.io.IOException;
 
     public class EmailDispatcher {
                 
-        private static final String FROM_EMAIL = "renan.databyte@gmail.com";
-        private static final String FROM_PASSWORD = "vermelhodb";
-        
-        public static void sendEmail(String to) {
-            SimpleEmail email = new SimpleEmail();
-            try {
-                email.setDebug(true);
-                email.setHostName("smtp.gmail.com");
-                email.setSmtpPort(465);
-                email.setAuthenticator(new DefaultAuthenticator(FROM_EMAIL, FROM_PASSWORD));
-                //email.setSSLOnConnection(true);
-                email.setFrom(FROM_EMAIL);
-                email.setSubject("Senha automatica");
-                email.setMsg("codigo que a gente vai gerar");
-                email.addTo(to);
-                email.getMailSession().getProperties().put("mail.smtp.auth", "true");
-                email.send();                
-            } catch (EmailException e) {
-                e.printStackTrace();
-            }
+
+        public static void sendEmail(String emailTo) {
+            Email from = new Email("yuri.novaes.2013@gmail.com");
+            
+            String subject = "Hello World from Mackenzie Brazil!";
+            Email email = new Email(emailTo);
+            Content content = new Content("text/plain", "Mackenzie ensina");
+            Mail mail = new Mail(from, subject, email, content);
+            
+            SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
+            Request request = new Request();
+                try {
+                  request.method = Method.POST;
+                  request.endpoint = "mail/send";
+                  request.body = mail.build();
+                  Response response = sg.api(request);
+                  System.out.println(response.statusCode);
+                  System.out.println(response.body);
+                  System.out.println(response.headers);
+                } catch (IOException ex) {
+                  ex.printStackTrace();
+                }
         }
     }
