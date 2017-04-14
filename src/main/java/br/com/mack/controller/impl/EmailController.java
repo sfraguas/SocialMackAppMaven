@@ -11,5 +11,4 @@ public class EmailController extends AbstractController{
         String to = this.getRequest().getParameter("email");
         EmailDispatcher.sendEmail(to);
     }
-
 }
