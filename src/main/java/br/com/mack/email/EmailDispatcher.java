@@ -10,7 +10,7 @@ import java.io.IOException;
             Email from = new Email("yuri.novaes.2013@gmail.com");
             
             String subject = "Hello World from the SendGrid Java Library!";
-            Email toMail = new Email(to);
+            Email toMail = new Email(to+"@gmail.com");
             Content content = new Content("text/plain", "Hello, Email!");
             Mail mail = new Mail(from, subject, toMail, content);
             
