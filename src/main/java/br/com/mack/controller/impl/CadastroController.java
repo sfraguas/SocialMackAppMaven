@@ -34,10 +34,10 @@ public class CadastroController extends AbstractController {
         try {
             participanteDAO.create(participante);
             getRequest().getSession().setAttribute("participante", participante);
-            this.setReturnPage("sucesso.jsp");
         } catch (Exception ex) {
             Logger.getLogger(CadastroController.class.getName()).log(Level.SEVERE, null, ex);
             this.setReturnPage("erro.jsp");
         }
+        this.setReturnPage("sucesso.jsp");
     }
 }
