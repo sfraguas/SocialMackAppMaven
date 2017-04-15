@@ -16,7 +16,7 @@
         
             <p>
                 <label for="id">id:</label><br>
-                <input type="text" id="name" name="name" value="${participante.id_participante}" readonly/>
+                <input type="text" id="name" name="name" value="${participante.id_pessoa}" readonly/>
             </p>
             <p>
                 <label for="name">Nome:</label><br>
