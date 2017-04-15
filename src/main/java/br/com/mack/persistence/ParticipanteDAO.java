@@ -43,6 +43,10 @@ public class ParticipanteDAO implements GenericDAO<Participante> {
         } catch(PSQLException ex) {
             Logger.getLogger(ParticipanteDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
+        catch(SQLException ex) {
+            Logger.getLogger(ParticipanteDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
     
     @Override
