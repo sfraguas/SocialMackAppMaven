@@ -13,7 +13,7 @@
             </div>
             <div class="panel-body">
                 <form action="FrontController" method="POST">
-                    <input type="email"  name="email" placeholder="email" required="required" class="form-control input-lg">
+                    <input type="email"  name="email" title="Digite o email." placeholder="email" required="required" class="form-control input-lg">
                     <br/>
                     <input type="hidden" value="Email" name="ctrl">
                     <input type="submit" value="email" class="btn btn-default btn-lg center-block">
