@@ -22,7 +22,7 @@ public class RegistrarPalestraController extends AbstractController {
     @Override
     public void execute() {
         Participante participante = (Participante) getRequest().getSession().getAttribute("participante");
-        long id_participante = participante.getId_participante();
+        long id_participante = participante.getId_pessoa();
 
         long id_palestra = Long.parseLong(getRequest().getParameter("idPalestra"));
         try {
