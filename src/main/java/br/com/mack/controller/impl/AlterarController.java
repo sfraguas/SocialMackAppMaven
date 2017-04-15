@@ -25,7 +25,7 @@ public class CadastroController extends AbstractController {
         System.out.println("FUNCIONOU");
         //TesteConnection connection = new TesteConnection();
         
-        long id = this.getRequest().getParameter("id")
+        long id = this.getRequest().getParameter("id");
         String name = this.getRequest().getParameter("name");
         String email = this.getRequest().getParameter("email");
         double celular = this.getRequest().getParameter("celular");
