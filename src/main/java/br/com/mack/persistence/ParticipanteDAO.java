@@ -56,7 +56,28 @@ public class ParticipanteDAO implements GenericDAO<Participante> {
     
     @Override
     public void update(Participante participante) {
+        
+        try{
+            String sql = "update pessoa set nome = ?, email = ?, celular = ?, senha = ? where id = ?";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, participante.getNome());
+            ps.setString(2, participante.getEmail());
+            ps.setDouble(3, participante.getCelular());
+            ps.setString(4, participante.getSenha());
+            ps.setLong(5, participante.getId_pessoa());
+            ps.execute();
        
+            String sql2 = "update participante set formacao = ? where id_pessoa = ?";
+            PreparedStatement ps2 = connection.getConnection();
+            ps2.setString(1, participante.getFormacao());
+            ps2.setLong(2, participante.getId_pessoa());
+            ps2.execute();
+       
+            ps.close();
+            ps2.close();
+        }catch(Exception e){
+            Logger.getLogger(ParticipanteDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     @Override

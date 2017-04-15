@@ -27,7 +27,25 @@
                 <label for="email">Email:</label><br>
                 <input type="email" id="email" name="email" value="${participante.email}"/>
             </p>
+            
+            <p>
+                <label for="celular">Celular:</label><br>
+                <input type="text" id="celular" name="celular"/>
+            </p>
+            
+            <p>
+                <label for="senha">Senha:</label><br>
+                <input type="text" id="senha" name="senha"/>
+            </p>
 
+            <p>
+                <label for="celular">Celular:</label><br>
+                <input type="text" id="celular" name="celular"/>
+            </p>
+            <p>
+                <label for="formacao">Formacao:</label><br>
+                <input type="text" id="formacao" name="formacao"/>
+            </p>
             <input type="hidden" name="ctrl" value="Alterar"/>
             <p>
                 <input type="submit" value="Alterar"/>
