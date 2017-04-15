@@ -12,11 +12,12 @@
                 LOGIN
             </div>
             <div class="panel-body">
-                <form>
-                    <input type="text" title="Digite o nome de usuário." placeholder="Usuário" required="required" class="form-control input-lg">
+                <form method="POST" action="FrontController">
+                    <input type="text" title="Digite o email." name="email" placeholder="Email" required="required" class="form-control input-lg">
                     <br/>
-                    <input type="password" title="Digite a senha." placeholder="Senha" required="required" class="form-control input-lg">
+                    <input type="password" title="Digite a senha." name="senha" placeholder="Senha" required="required" class="form-control input-lg">
                     <br/>
+                    <input type="hidden" value="Login" name="ctrl">
                     <input type="submit" value="LOGAR" class="btn btn-default btn-lg center-block">
                 </form>
 

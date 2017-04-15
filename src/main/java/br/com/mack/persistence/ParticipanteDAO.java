@@ -1,6 +1,7 @@
 package br.com.mack.persistence;
 
 import br.com.mack.persistence.entities.Participante;
+import br.com.mack.persistence.entities.Pessoa;
 import br.com.mack.singletonconnection.SingletonConnection;
 import java.util.List;
 
@@ -82,5 +83,29 @@ public class ParticipanteDAO implements GenericDAO<Participante> {
     @Override
     public void delete(Participante participante) {
         
+    }
+
+    public Pessoa readByEmail(String email) {
+        String sql = "select * from pessoa inner join participante on pessoa.id = participante.id_pessoa where email = ?";
+        Pessoa pessoa = new Participante();
+        PreparedStatement ps;
+        try {
+            ps = connection.prepareStatement(sql);
+            ps.setString(1, email);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {                
+                pessoa.setId_pessoa(Long.parseLong(rs.getString("id")));
+                pessoa.setNome(rs.getString("nome"));
+                pessoa.setEmail(rs.getString("email"));
+                pessoa.setCelular(rs.getString("celular"));
+                pessoa.setSenha(rs.getString("senha"));
+                ((Participante)pessoa).setFormacao(rs.getString("formacao"));
+            }
+            rs.close();
+            ps.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(ParticipanteDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return pessoa;
     }
 }
