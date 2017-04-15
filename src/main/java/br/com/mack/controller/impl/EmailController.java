@@ -5,7 +5,6 @@ package br.com.mack.controller.impl;
  
  public class EmailController extends AbstractController{
      
-     
      @Override
      public void execute() {
          String email = this.getRequest().getParameter("email");
