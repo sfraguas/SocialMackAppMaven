@@ -10,6 +10,7 @@ import java.util.logging.Logger;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import br.com.mack.email.EmailDispatcher;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -34,6 +35,8 @@ public class CadastroController extends AbstractController {
         try {
             participanteDAO.create(participante);
             getRequest().getSession().setAttribute("participante", participante);
+            email = this.getRequest().getParameter("email");
+            EmailDispatcher.sendEmail(email);
             this.setReturnPage("sucesso.jsp");
         } catch (Exception ex) {
             Logger.getLogger(CadastroController.class.getName()).log(Level.SEVERE, null, ex);
