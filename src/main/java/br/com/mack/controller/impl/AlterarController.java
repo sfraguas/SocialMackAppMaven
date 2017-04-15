@@ -25,10 +25,10 @@ public class AlterarController extends AbstractController {
         System.out.println("FUNCIONOU");
         //TesteConnection connection = new TesteConnection();
         
-        long id = this.getRequest().getParameter("id");
+        long id = Long.parseLong(this.getRequest().getParameter("id"));
         String name = this.getRequest().getParameter("name");
         String email = this.getRequest().getParameter("email");
-        double celular = this.getRequest().getParameter("celular");
+        double celular = Double.parseDouble(this.getRequest().getParameter("celular"));
         String senha = this.getRequest().getParameter("senha");
         String formacao = this.getRequest().getParameter("formacao");
         Participante participante = new Participante();
