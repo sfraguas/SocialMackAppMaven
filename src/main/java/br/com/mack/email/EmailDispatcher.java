@@ -9,7 +9,7 @@ import java.io.IOException;
         public static void sendEmail(String email) {
         
                 Email from = new Email("yuri.novaes.2013@gmail.com");
-                String subject = "Testando SendGrid"";
+                String subject = "Testando SendGrid";
                 Email to = new Email(email);
                 Content content = new Content("text/plain", "Testando email com Send Grid");
                 Mail mail = new Mail(from, subject, to, content);
@@ -23,7 +23,7 @@ import java.io.IOException;
                     Response response = sg.api(request);
                 }
                 catch (IOException ex) {
-                    ex PrintStrackTracer();
+                    ex.printStackTrace();
                 }
   
         }
