@@ -11,7 +11,7 @@ import java.io.IOException;
             Email from = new Email("test@example.com");
             String subject = "Cadastro em SocialMack!";
             Email to = new Email(email);
-            Content content = new Content("text/plain", "Cadastro em SocialMack efetuado com sucesso!");
+            Content content = new Content("text/plain", "Clique no link para gerar uma senha \n http://socialmackappteste-pr-56.herokuapp.com/editar.jsp");
             Mail mail = new Mail(from, subject, to, content);
 
             SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
