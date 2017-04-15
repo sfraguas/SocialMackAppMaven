@@ -54,7 +54,7 @@ public class PalestraDAO implements GenericDAO<Palestra> {
     }
 
     public List<Palestra> readByIdParticipante(long id) {
-        List<Palestra> palestras = new ArrayList<>();
+        List<Palestra> palestras = new ArrayList();
         String sql = "select p.id,p.tema,p.codigo "
                 + "from palestra p inner join participante_palestra on "
                 + "p.id = participante_palestra.id_palestra where participante_palestra.id_participante = ?";
