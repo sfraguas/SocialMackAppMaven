@@ -5,13 +5,12 @@ import java.io.Serializable;
 public class Pessoa implements Serializable {
 
     private long id_pessoa;
-    private String nome, email, senha;
-    private double celular;
+    private String nome, email, senha,celular;
 
     public Pessoa() {
     }
 
-    public Pessoa(long id_pessoa, String nome, String email, String senha, double celular) {
+    public Pessoa(long id_pessoa, String nome, String email, String senha, String celular) {
         this.id_pessoa = id_pessoa;
         this.nome = nome;
         this.email = email;
@@ -51,11 +50,11 @@ public class Pessoa implements Serializable {
         this.senha = senha;
     }
 
-    public double getCelular() {
+    public String getCelular() {
         return celular;
     }
 
-    public void setCelular(double celular) {
+    public void setCelular(String celular) {
         this.celular = celular;
     }
 

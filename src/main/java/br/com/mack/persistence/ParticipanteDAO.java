@@ -8,7 +8,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import org.postgresql.util.PSQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -62,7 +61,7 @@ public class ParticipanteDAO implements GenericDAO<Participante> {
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setString(1, participante.getNome());
             ps.setString(2, participante.getEmail());
-            ps.setDouble(3, participante.getCelular());
+            ps.setString(3, participante.getCelular());
             ps.setString(4, participante.getSenha());
             ps.setLong(5, participante.getId_pessoa());
             ps.execute();
@@ -75,7 +74,7 @@ public class ParticipanteDAO implements GenericDAO<Participante> {
        
             ps.close();
             ps2.close();
-        }catch(Exception ex){
+        }catch(SQLException ex){
             Logger.getLogger(ParticipanteDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

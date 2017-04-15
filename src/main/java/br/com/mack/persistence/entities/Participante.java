@@ -10,7 +10,7 @@ public class Participante extends Pessoa implements Serializable{
     public Participante() {
     }
 
-    public Participante(String formacao, long id_pessoa,String nome, String email, String senha, double celular) {
+    public Participante(String formacao, long id_pessoa,String nome, String email, String senha, String celular) {
         super(id_pessoa,nome, email, senha, celular);
         this.formacao = formacao;
     }

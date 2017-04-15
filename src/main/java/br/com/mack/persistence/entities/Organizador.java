@@ -10,7 +10,7 @@ public class Organizador extends Pessoa implements Serializable {
     public Organizador() {
     }
 
-    public Organizador(String empresa, int telefone, long id_pessoa,String nome, String email, String senha, double celular) {
+    public Organizador(String empresa, int telefone, long id_pessoa,String nome, String email, String senha, String celular) {
         super(id_pessoa, nome, email, senha, celular);
         this.empresa = empresa;
         this.telefone = telefone;
