@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import org.postgresql.util.PSQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -39,7 +40,7 @@ public class ParticipanteDAO implements GenericDAO<Participante> {
             
             System.out.println("************* FUNCIONOU *****************");
 
-        } catch(Exception ex) {
+        } catch(PSQLException ex) {
             Logger.getLogger(ParticipanteDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
