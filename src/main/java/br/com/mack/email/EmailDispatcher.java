@@ -9,9 +9,9 @@ import java.io.IOException;
         public static void sendEmail(String email) {
         
             Email from = new Email("test@example.com");
-            String subject = "Hello World from the SendGrid Java Library!";
+            String subject = "Cadastro em SocialMack!";
             Email to = new Email(email);
-            Content content = new Content("text/plain", "Hello, Email!");
+            Content content = new Content("text/plain", "Cadastro em SocialMack efetuado com sucesso!");
             Mail mail = new Mail(from, subject, to, content);
 
             SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
