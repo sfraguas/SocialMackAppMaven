@@ -10,9 +10,9 @@ import java.io.IOException;
         
             Email from = new Email("test@example.com");
             String subject = "Hello World from the SendGrid Java Library!";
-            Email toMail = new Email(email);
+            Email to = new Email(email);
             Content content = new Content("text/plain", "Hello, Email!");
-            Mail mail = new Mail(from, subject, toMail, content);
+            Mail mail = new Mail(from, subject, to, content);
 
             SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
             Request request = new Request();
