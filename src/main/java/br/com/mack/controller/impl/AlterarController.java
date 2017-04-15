@@ -15,7 +15,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.lang.Exception;
 
-public class CadastroController extends AbstractController {
+public class AlterarController extends AbstractController {
 
     ParticipanteDAO participanteDAO = new ParticipanteDAO();
     
