@@ -75,7 +75,7 @@ public class ParticipanteDAO implements GenericDAO<Participante> {
        
             ps.close();
             ps2.close();
-        }catch(Exception e){
+        }catch(Exception ex){
             Logger.getLogger(ParticipanteDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
