@@ -49,6 +49,32 @@ public class PalestraDAO implements GenericDAO<Palestra>{
         return palestras;
     }
     
+    //method to get all Palestras wich the Participante is not registered
+    public List<Palestra> readNonRegistered(Participante part){
+        List<Palestra> palestras = new ArrayList<Palestra>();
+         
+        //Declarar String de busca
+        String sql = "SELECT * FROM p palestra WHERE p.id = (SELECT id_palestra FROM pp participante_palestra WHERE pp.id_participante <> " + part.id_pessoa")";
+        
+        try{
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                Palestra palestra = new Palestra();
+                palestra.setId_palestra(rs.getLong("id"));
+                palestra.setTema(rs.getString("tema"));
+                palestra.setCodigo(rs.getInt("codigo"));
+                palestras.add(palestra);
+            }
+            ps.close();
+            
+        }catch(SQLException ex){
+            Logger.getLogger(PalestraDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return palestras;
+    }
+    
     @Override
     public Palestra readById(long id){
         return null;
