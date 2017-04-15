@@ -8,7 +8,7 @@ public class EmailController extends AbstractController{
     
     @Override
     public void execute() {
-        String to = this.getRequest().getParameter("email");
-        EmailDispatcher.sendEmail(to);
+        String email = this.getRequest().getParameter("email");
+        EmailDispatcher.sendEmail(email);
     }
 }

@@ -1,4 +1,4 @@
-package br.com.mack.controller.impl;
+package br.com.mack.controller;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
